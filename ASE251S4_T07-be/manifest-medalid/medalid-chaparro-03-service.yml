@@ -1,0 +1,21 @@
+# kubectl apply -f medalid-chaparro-03-service.yml
+# kubectl delete -f medalid-chaparro-03-service.yml
+
+apiVersion: v1
+
+kind: Service
+
+metadata:
+  name: medalid-chaparro-03-service
+  namespace: medalid-chaparro-03-namespace
+
+spec:
+  type: NodePort
+
+  ports:
+  - port: 30001
+    targetPort: 8082
+    nodePort: 30001
+
+  selector:
+    app: medalid-chaparro-03-deployment

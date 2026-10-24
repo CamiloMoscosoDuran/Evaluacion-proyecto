@@ -1,0 +1,13 @@
+first_name,last_name,document_type,document_number,phone,email,registration_date,status
+Daniel,Huaman,DNI,78451236,912345111,daniel.huaman@gmail.com,2026-01-05,true
+Valeria,Rojas,DNI,74589632,912345112,valeria.rojas@gmail.com,2026-01-18,true
+Miguel,Quispe,DNI,71239845,912345113,miguel.quispe@gmail.com,2026-02-02,false
+Camila,Vega,DNI,79845123,912345114,camila.vega@gmail.com,2026-02-14,true
+Jose,Cabrera,DNI,70124589,912345115,jose.cabrera@gmail.com,2026-03-01,true
+Luciana,Flores,DNI,78963214,912345116,luciana.flores@gmail.com,2026-03-10,true
+Ricardo,Salazar,DNI,74512369,912345117,ricardo.salazar@gmail.com,2026-03-22,false
+Andrea,Morales,DNI,75896321,912345118,andrea.morales@gmail.com,2026-04-05,true
+Fernando,Castillo,DNI,72145698,912345119,fernando.castillo@gmail.com,2026-04-18,true
+Elisa,Navarro,DNI,73415986,912345120,elisa.navarro@gmail.com,2026-05-02,true
+Carlos,Mendoza,DNI,76123456,912345121,carlos.mendoza@gmail.com,2026-05-15,true
+Sofia,Paredes,DNI,77981234,912345122,sofia.paredes@gmail.com,2026-05-28,true

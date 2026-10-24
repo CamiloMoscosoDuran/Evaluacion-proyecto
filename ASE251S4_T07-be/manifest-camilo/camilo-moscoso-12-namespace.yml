@@ -1,0 +1,7 @@
+# kubectl create namespace camilo-moscoso-12-namespace (COMANDO)
+# kubectl apply -f camilo-moscoso-12-namespace.yml (yml)
+# kubectl delete -f camilo-moscoso-12-namespace.yml (yml)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: camilo-moscoso-12-namespace

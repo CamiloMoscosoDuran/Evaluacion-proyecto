@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reporte de Clientes</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 25px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #333333;
+        }
+
+        .header {
+            border-bottom: 3px solid #1565C0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1565C0;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #777777;
+            margin-top: 5px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            margin: 4px 0;
+            font-size: 11px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            display: table-header-group;
+            background-color: #1565C0;
+            color: white;
+        }
+
+        th {
+            padding: 8px 6px;
+            text-align: left;
+            font-size: 10px;
+        }
+
+        td {
+            padding: 7px 6px;
+            border-bottom: 1px solid #DDDDDD;
+            vertical-align: middle;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #F4F8FB;
+        }
+
+        .estado-activo {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+
+        .estado-inactivo {
+            color: #D32F2F;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #CCCCCC;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 9px;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">REPORTE DE CLIENTES</div>
+        <div class="subtitle">Sistema de Gestión de Clientes - AgroTecno</div>
+    </div>
+
+    <div class="info">
+        <p><strong>Fecha de generación:</strong> <span th:text="${fechaGeneracion}"></span></p>
+        <p><strong>Total de clientes:</strong> <span th:text="${#lists.size(customers)}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${estadoReporte}"></span></p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>CLIENTE</th>
+                <th>TIPO DOC.</th>
+                <th>NRO. DOC</th>
+                <th>TELÉFONO</th>
+                <th>EMAIL</th>
+                <th>FECHA REG.</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="customer : ${customers}">
+                <td th:text="${customer.id}"></td>
+                <td>
+                    <strong th:text="${(customer.firstName != null ? customer.firstName : '') + ' ' + (customer.lastName != null ? customer.lastName : '')}"></strong>
+                </td>
+                <td th:text="${customer.documentType != null ? customer.documentType : '-'}"></td>
+                <td th:text="${customer.documentNumber != null ? customer.documentNumber : '-'}"></td>
+                <td th:text="${customer.phoneFormatted != null ? customer.phoneFormatted : '-'}"></td>
+                <td th:text="${customer.email != null ? customer.email : '-'}"></td>
+                <td th:text="${customer.registrationDate != null ? customer.registrationDate : '-'}"></td>
+                <td>
+                    <span th:if="${customer.activo}" class="estado-activo">Activo</span>
+                    <span th:unless="${customer.activo}" class="estado-inactivo">Inactivo</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Documento generado automáticamente por Spring Boot + Thymeleaf &bull; AgroTecno
+    </div>
+</body>
+</html>

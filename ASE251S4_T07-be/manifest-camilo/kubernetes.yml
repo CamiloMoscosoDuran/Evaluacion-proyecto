@@ -1,0 +1,67 @@
+# MINIKUBE FUNCIONA EN CODESPACE
+# KUBECTL FUNCIONA DIRECTO EN KILLERCODA (SIN MINIKUBE)
+
+# consultar versión de minikube
+minikube version
+
+# consultar si minikube esta en start o stop
+minikube status
+
+# iniciar clúster kubernetes
+minikube start
+
+# ingresar a la carpeta de los manifiestos de kubernetes (manifest)
+cd manifest-camilo
+
+# listar namespace
+kubectl get namespace
+kubectl get ns
+
+
+# crear un namespace "camilo-moscoso-12-namespace" por comando mediante un archivo: "camilo-moscoso-12-namespace.yml"
+kubectl apply -f camilo-moscoso-12-namespace.yml
+
+# consultar namespace en uso por "default" | LINUX
+kubectl config view --minify | grep namespace
+
+# consultar namespace en uso por "default" | WINDOWS
+kubectl config view --minify | findstr namespace
+
+
+# cambiar un namespace en uso por "default" a "camilo-moscoso-12-namespace"
+kubectl config set-context --current --namespace=camilo-moscoso-12-namespace
+
+# consultar todos los recursos de un namespace "camilo-moscoso-12-namespace"
+kubectl get all -n camilo-moscoso-12-namespace
+
+# consultar todos los recursos y secret de un namespace "camilo-moscoso-12-namespace"
+kubectl get all,secrets,configmaps -n camilo-moscoso-12-namespace
+
+# listar services del namespace "camilo-moscoso-12-namespace" | CODESPACE
+minikube service camilo-moscoso-12-service -n camilo-moscoso-12-namespace
+minikube service list
+# El comando anterior genera un puerto local temporal, por ejemplo:
+# http://127.0.0.1:37005
+# Swagger UI se abre agregando la ruta:
+# http://127.0.0.1:37005/swagger-ui.html
+# Mantén esta terminal abierta mientras uses la URL.
+
+# probar el proyecto dentro del clúster con curl | CODESPACE
+curl http://192.168.49.2:30001/v1/api/customer
+
+# crear un túnel de puerto de la máquina local (host) al Service | WINDOWS / LINUX
+kubectl port-forward service/camilo-moscoso-12-service 8082:30001 -n camilo-moscoso-12-namespace
+# Swagger UI: http://127.0.0.1:8082/swagger-ui.html
+# OpenAPI JSON: http://127.0.0.1:8082/api-docs
+
+
+
+# -----------------------------------------------------------------------------------------
+# Consultar INTERNAL-IP del nodo de Kubernetes | KILLERCODA
+kubectl get nodes -o wide
+
+# probar el proyecto dentro del clúster con curl | KILLERCODA
+curl http://172.30.1.2:30001/v1/api/customer
+
+# crear un túnel de puerto de la máquina local (host) al Service | KILLERCODA
+kubectl port-forward service/camilo-moscoso-12-service 8082:30001 -n camilo-moscoso-12-namespace

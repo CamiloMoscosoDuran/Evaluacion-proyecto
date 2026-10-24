@@ -1,0 +1,52 @@
+# MINIKUBE FUNCIONA EN CODESPACE | LOCAL
+# KUBECTL FUNCIONA DIRECTO EN KILLERCODA (SIN MINIKUBE)
+
+# consultar versión de minikube
+minikube version
+
+# consultar si minikube esta en start o stop
+minikube status
+
+# iniciar clúster kubernetes
+minikube start
+
+# ingresar a la carpeta de los manifiestos de kubernetes (manifest)
+cd manifest
+
+# listar namespace
+kubectl get namespace
+kubectl get ns
+
+# crear un namespace "juan" por comando mediante un archivo: "carolina-ortiz-16-namespace.yml"
+kubectl apply -f carolina-ortiz-16-namespace.yml
+
+# consultar namespace en uso por "default" | LINUX
+kubectl config view --minify | grep namespace
+
+# consultar namespace en uso por "default" | WINDOWS
+kubectl config view --minify | findstr namespace
+
+# cambiar un namespace en uso por "default" a "carolina-ortiz-16-namespace"
+kubectl config set-context --current --namespace=carolina-ortiz-16-namespace
+
+# consultar todos los recursos de un namespace "carolina-ortiz-16-namespace"
+kubectl get all -n carolina-ortiz-16-namespace
+
+# consultar todos los recursos y secret de un namespace "carolina-ortiz-16-namespace"
+kubectl get all,secrets,configmaps -n carolina-ortiz-16-namespace
+
+# listar services del namespace "carolina-ortiz-16-namespace"
+minikube service carolina-ortiz-16-service -n carolina-ortiz-16-namespace
+minikube service list
+
+# probar el microservicio dentro del clúster con curl | CODESPACE
+curl http://192.168.49.2:30001/v1/api/formula
+curl http://192.168.49.2:30001/v1/api/customer/1
+
+# crear un túnel de puerto la máquina local (host) y el clúster de Kubernetes
+kubectl port-forward service/carolina-ortiz-16-service 8081:30001
+
+#CONSULTAR URL
+minikube service carolina-ortiz-16-service -n carolina-ortiz-16-namespace --url
+
+#

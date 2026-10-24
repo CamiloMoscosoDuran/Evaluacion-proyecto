@@ -1,0 +1,7 @@
+# kubectl create namespace carolina-ortiz-16-namespace (COMANDO)
+# kubectl apply -f carolina-ortiz-16-namespace.yml (yml)
+# kubectl delete -f carolina-ortiz-16-namespace.yml (yml)
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: carolina-ortiz-16-namespace

@@ -1,0 +1,12 @@
+# kubectl apply -f medalid-chaparro-03-configmap.yml
+# kubectl delete -f medalid-chaparro-03-configmap.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: medalid-chaparro-03-configmap
+  namespace: medalid-chaparro-03-namespace
+  
+data:
+  MONGO_DATABASE: agrotecno_db
+  MONGO_URI: mongodb+srv://medalidchaparro_db_user:password@cluster0.g2dzcvn.mongodb.net/agrotecno_db?appName=Cluster0
+  SERVER_PORT: "8082"

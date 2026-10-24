@@ -1,0 +1,37 @@
+# kubectl apply -f medalid-chaparro-03-deployment.yml
+# kubectl delete -f medalid-chaparro-03-deployment.yml
+
+apiVersion: apps/v1
+
+kind: Deployment
+
+metadata:
+  name: medalid-chaparro-03-deployment
+  namespace: medalid-chaparro-03-namespace
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: medalid-chaparro-03-deployment
+
+  template:
+    metadata:
+      labels:
+        app: medalid-chaparro-03-deployment
+
+    spec:
+      containers:
+      - name: medalid-chaparro-03-container
+
+        image: medalidcondezo/s5-springwebflux-mongodb:latest
+
+        imagePullPolicy: Always
+
+        envFrom:
+        - secretRef:
+            name: medalid-chaparro-03-secret
+
+        #- configMapRef:
+        #    name: medalid-chaparro-03-configmap

@@ -1,0 +1,9 @@
+# kubectl create namespace medalid-chaparro-03-namespace
+# kubectl apply -f medalid-chaparro-03-namespace.yml
+# kubectl delete -f medalid-chaparro-03-namespace.yml
+
+apiVersion: v1
+kind: Namespace
+
+metadata:
+  name: medalid-chaparro-03-namespace

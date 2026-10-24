@@ -1,0 +1,10 @@
+# kubectl apply -f camilo-moscoso-12-configmap.yml
+# kubectl delete -f camilo-moscoso-12-configmap.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: camilo-moscoso-12-configmap
+  namespace: camilo-moscoso-12-namespace
+data:
+  MONGO_DATABASE: agrotecno_db
+  SERVER_PORT: "8082"

@@ -1,0 +1,13 @@
+name,description,unit,location,current_stock,minimum_stock,expiration_date
+Fertilizante Triple Accion,Fertilizante granulado para cultivos en crecimiento,kg,Almacén A - Estante 1,500.0,50.0,2027-06-30
+Herbicida Glifosato Sistemico,Herbicida de amplio espectro para malezas anuales y perennes,litro,Almacén B - Estante 3,120.0,20.0,2026-12-31
+Insecticida Cipermetrina Agrario,Insecticida para control de plagas en hortalizas y frutales,litro,Almacén B - Estante 4,80.0,15.0,2026-09-15
+Sulfato de Cobre Pentahidratado,Fungicida inorgánico preventivo y curativo para hongos y bacterias,kg,Almacén A - Estante 2,200.0,30.0,2028-03-01
+Urea Agricola Nitrogenada,Fuente de nitrógeno de alta concentración para fertirrigación,kg,Almacén A - Estante 1,1000.0,100.0,2027-12-31
+Acido Fulvico Organico,Bioestimulante natural que mejora la absorción de nutrientes en el suelo,litro,Almacén C - Estante 1,60.0,10.0,2026-08-20
+Fungicida Mancozeb Humectable,Fungicida de contacto para control de mildiu y tizón en cultivos,kg,Almacén B - Estante 2,150.0,25.0,2027-04-15
+Calcio Boro Quelado,Corrector de deficiencias de calcio y boro en frutas y vegetales,litro,Almacén C - Estante 2,45.0,8.0,2026-11-30
+Potasio Humico Liquido,Mejorador de suelo y activador radicular a base de ácidos húmicos,litro,Almacén C - Estante 3,90.0,12.0,2027-02-28
+Azufre Elemental Granulado,Fungicida y acaricida preventivo para suelos alcalinos,kg,Almacén A - Estante 3,300.0,40.0,2028-01-15
+Fosfato Monoamonico Soluble,Fuente de fósforo y nitrógeno para la etapa inicial de cultivos,kg,Almacén A - Estante 2,750.0,80.0,2027-09-30
+Acaricida Abamectina Concentrado,Control de ácaros fitófagos en hortalizas y cultivos ornamentales,litro,Almacén B - Estante 5,35.0,5.0,2026-07-31

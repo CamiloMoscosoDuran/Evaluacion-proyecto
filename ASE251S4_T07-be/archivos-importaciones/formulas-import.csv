@@ -1,0 +1,11 @@
+name,description,standard_batch,unit,production_time,preparation_cost,suggested_price,status,recipe
+Formula NPK 10-10-10,Mezcla balanceada para uso general,100,kg,60,125.50,180.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 15-15-15,Mezcla para crecimiento vegetativo,100,kg,65,140.00,205.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 20-10-10,Mezcla alta en nitrogeno,100,kg,55,132.75,195.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 10-20-20,Mezcla para floracion y fructificacion,100,kg,70,148.25,220.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 12-24-12,Mezcla para desarrollo radicular,100,kg,68,151.00,225.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 8-16-24,Mezcla para etapa de produccion,100,kg,72,157.50,235.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 18-6-12,Mezcla para cultivo de hojas,100,kg,58,136.00,200.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 6-12-18,Mezcla para mantenimiento de suelo,100,kg,62,143.75,212.50,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 14-14-14,Mezcla equilibrada de liberacion gradual,100,kg,66,146.00,218.00,true,"{""version"":""1.0"",""ingredients"":[]}"
+Formula NPK 5-10-30,Mezcla para cultivos de alta demanda de potasio,100,kg,75,162.00,245.00,true,"{""version"":""1.0"",""ingredients"":[]}"

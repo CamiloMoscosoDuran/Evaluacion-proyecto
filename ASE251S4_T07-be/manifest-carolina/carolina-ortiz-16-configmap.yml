@@ -1,0 +1,11 @@
+# kubectl apply -f carolina-ortiz-16-configmap.yml
+# kubectl delete -f carolina-ortiz-16-configmap.yml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: carolina-ortiz-16-configmap
+  namespace: carolina-ortiz-16-namespace
+data:
+  MONGO_DATABASE: AGROTECNO
+  MONGO_URI: mongodb+srv://carolinaortiz_db_user:password@cluster0.oojbzbv.mongodb.net/AGROTECNO?appName=Cluster0
+  SERVER_PORT: "8082"

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Reporte de Insumos / Suministros</title>
+    <style>
+        @page {
+            size: A4 landscape;
+            margin: 25px;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+            color: #333333;
+        }
+
+        .header {
+            border-bottom: 3px solid #2E7D32;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2E7D32;
+        }
+
+        .subtitle {
+            font-size: 11px;
+            color: #777777;
+            margin-top: 5px;
+        }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+        .info p {
+            margin: 4px 0;
+            font-size: 11px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        thead {
+            display: table-header-group;
+            background-color: #2E7D32;
+            color: white;
+        }
+
+        th {
+            padding: 7px 5px;
+            text-align: left;
+            font-size: 9px;
+        }
+
+        td {
+            padding: 6px 5px;
+            border-bottom: 1px solid #DDDDDD;
+            vertical-align: top;
+        }
+
+        tbody tr:nth-child(even) {
+            background-color: #F1F8F1;
+        }
+
+        .estado-activo {
+            color: #2E7D32;
+            font-weight: bold;
+        }
+
+        .estado-inactivo {
+            color: #D32F2F;
+            font-weight: bold;
+        }
+
+        .stock-ok {
+            color: #1565C0;
+        }
+
+        .stock-bajo {
+            color: #E65100;
+            font-weight: bold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            border-top: 1px solid #CCCCCC;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 9px;
+            color: #888888;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="title">REPORTE DE INSUMOS / SUMINISTROS</div>
+        <div class="subtitle">Sistema de Gestión de Insumos - AgroTecno</div>
+    </div>
+
+    <div class="info">
+        <p><strong>Fecha de generación:</strong> <span th:text="${fechaGeneracion}"></span></p>
+        <p><strong>Total de insumos:</strong> <span th:text="${#lists.size(supplies != null ? supplies : insumos)}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${estadoReporte}"></span></p>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NOMBRE</th>
+                <th>CATEGORÍA</th>
+                <th>DESCRIPCIÓN</th>
+                <th>UNIDAD</th>
+                <th>UBICACIÓN</th>
+                <th>STOCK ACTUAL</th>
+                <th>STOCK MÍNIMO</th>
+                <th>VENCIMIENTO</th>
+                <th>ESTADO</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="supply : ${supplies != null ? supplies : insumos}">
+                <td th:text="${supply.id}"></td>
+                <td><strong th:text="${supply.name}"></strong></td>
+                <td th:text="${supply.category != null ? supply.category : 'General'}"></td>
+                <td th:text="${supply.description != null ? supply.description : '-'}"></td>
+                <td th:text="${supply.unit != null ? supply.unit : '-'}"></td>
+                <td th:text="${supply.location != null ? supply.location : '-'}"></td>
+                <td>
+                    <span th:if="${supply.inventory != null and supply.inventory.current_stock != null
+                                   and supply.inventory.minimum_stock != null
+                                   and supply.inventory.current_stock >= supply.inventory.minimum_stock}"
+                          class="stock-ok"
+                          th:text="${supply.inventory.current_stock}"></span>
+                    <span th:if="${supply.inventory != null and supply.inventory.current_stock != null
+                                   and supply.inventory.minimum_stock != null
+                                   and supply.inventory.current_stock < supply.inventory.minimum_stock}"
+                          class="stock-bajo"
+                          th:text="${supply.inventory.current_stock + ' ⚠'}"></span>
+                    <span th:if="${supply.inventory == null or supply.inventory.current_stock == null}">-</span>
+                </td>
+                <td th:text="${supply.inventory != null and supply.inventory.minimum_stock != null
+                               ? supply.inventory.minimum_stock : '-'}"></td>
+                <td th:text="${supply.inventory != null and supply.inventory.expiration_date != null
+                               ? supply.inventory.expiration_date : '-'}"></td>
+                <td>
+                    <span th:if="${supply.status == true}"  class="estado-activo">Activo</span>
+                    <span th:if="${supply.status == false}" class="estado-inactivo">Inactivo</span>
+                    <span th:if="${supply.status == null}">Sin estado</span>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Documento generado automáticamente por Spring Boot + Thymeleaf &bull; AgroTecno
+    </div>
+</body>
+</html>
